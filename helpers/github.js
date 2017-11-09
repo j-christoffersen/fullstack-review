@@ -1,6 +1,5 @@
 const Promise = require('bluebird');
 const requestAsync = Promise.promisify(require('request'));
-const config = require('../config.js');
 
 let getReposByUsername = (username) => {
   // TODO - Use the request module to request repos for a specific
