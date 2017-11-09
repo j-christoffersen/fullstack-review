@@ -1,1 +1,0 @@
-web: npm run react-dep & npm run server-dep
