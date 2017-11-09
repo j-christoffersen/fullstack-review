@@ -1,1 +1,1 @@
-web: npm run react-dev & npm run server-dev
+web: npm run react-dep & npm run server-dep
