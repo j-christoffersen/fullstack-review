@@ -6,8 +6,9 @@
   "scripts": {
     "react-dev": "webpack -d --watch",
     "server-dev": "nodemon server/index.js",
-    "server-dep": "node server/index.js",
-    "heroku-postbuild": "npm run server-dep"
+    "server-prod": "node server/index.js",
+    "heroku-prebuild": "npm run config-prod",
+    "heroku-postbuild": "npm run server-prod"
     
   },
   "author": "Beth Johnson",
