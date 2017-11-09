@@ -10,7 +10,7 @@ class App extends React.Component {
     this.state = { 
       repos: []
     }
-
+    this.fetch();
   }
 
   search (term) {
@@ -23,12 +23,31 @@ class App extends React.Component {
         username: term
       }),
       success: function(data) {
-        console.log('Response:', data);
-      },
-      error: function(data) {
-        console.log(data);
-      }
+        this.fetch();
+      }.bind(this),
+      error: function(data) {}
     })
+  }
+  
+  fetch() {
+    $.ajax({
+      url: '/repos',
+      method: 'GET',
+      dataType: 'json',
+      success: function(data) {
+        console.log(typeof data);
+        console.log(data);
+        this.setState({
+          repos: data
+        });
+      }.bind(this),
+      error: function(error, string, other) {
+        console.log('there was an error');
+        console.log(error);
+        console.log(string);
+        console.log(other);
+      }
+    });
   }
 
   render () {

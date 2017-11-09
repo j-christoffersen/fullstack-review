@@ -41,7 +41,10 @@ app.get('/repos', function (req, res) {
   // This route should send back the top 25 repos
   db.get()
   .then(repos => {
-    console.log(repos);
+    res.writeHead(200, {
+      'Content-Type': 'application/json'
+    })
+    res.write(JSON.stringify(repos));
     res.end();
   })
 });
