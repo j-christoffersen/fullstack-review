@@ -7,7 +7,6 @@
     "react-dev": "webpack -d --watch",
     "server-dev": "nodemon server/index.js",
     "server-prod": "node server/index.js",
-    "heroku-prebuild": "npm run config-prod",
     "heroku-postbuild": "npm run server-prod"
     
   },
