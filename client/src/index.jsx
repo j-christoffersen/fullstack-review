@@ -35,17 +35,15 @@ class App extends React.Component {
       method: 'GET',
       dataType: 'json',
       success: function(data) {
-        console.log(typeof data);
-        console.log(data);
         this.setState({
           repos: data
         });
       }.bind(this),
       error: function(error, string, other) {
-        console.log('there was an error');
-        console.log(error);
-        console.log(string);
-        console.log(other);
+        // console.log('there was an error');
+        // console.log(error);
+        // console.log(string);
+        // console.log(other);
       }
     });
   }

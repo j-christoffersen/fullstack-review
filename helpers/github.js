@@ -20,10 +20,15 @@ let getReposByUsername = (username) => {
   return requestAsync(options)
   .then(value => {
     let responseData = JSON.parse(value.body);
+
+    if (value.statusCode !== 200) {
+      if (responseData.message === 'Not Found') {
+        throw new Error('User not found');
+      } else {
+        throw new Error(responseData.message);
+      }
+    }
     
-    if (responseData.message === 'Not Found') {
-      throw new Error('User not found');
-    } 
     
     return responseData.map(repo => {
       return {
